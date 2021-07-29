@@ -7,8 +7,15 @@ interface RepositoriesState {
     error: string | null;
     data: string[];
 }
+const initialState = {
+    loading:false,
+    error:null,
+    data:[]
+};
+// initialState must be defuned  to avoid the following error -
+// Error: Reducer "repositories" returned undefined during initialization. If the state passed to the reducer is undefined, you must explicitly return the initial state. The initial state may not be undefined. If you don't want to set a value for this reducer, you can use null instead of undefined.
 const reducer = (
-    state: RepositoriesState,
+    state: RepositoriesState=initialState,
     action: Action
 ): RepositoriesState => {
     // if(action.type === 'search_repositories_success'){
